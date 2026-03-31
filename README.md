@@ -6,10 +6,16 @@ A minimal full-stack starter: **React + TypeScript + Vite** on the client, **Exp
 
 | Layer | Choices |
 |--------|---------|
-| Client | React 19, Vite, TypeScript, ESLint |
+| Client | React 19, Vite 8, TypeScript, ESLint |
 | Server | Express 5, Mongoose, CORS |
 | Shared | `@my-project/shared` — Zod schemas and inferred TypeScript types |
 | Tooling | npm workspaces, `concurrently` for dev, `tsx watch` for the API |
+
+### Vite 8 + Rolldown + Oxc
+
+Vite 8 ships with [Rolldown](https://rolldown.rs/) as its single unified Rust-based bundler, replacing the previous dual-bundler setup (esbuild for dev, Rollup for production). Rolldown benchmarks 10–30x faster than Rollup while keeping full plugin compatibility.
+
+`@vitejs/plugin-react` v6 (used here) uses [Oxc](https://oxc.rs/) — Rolldown's companion compiler — for the React Refresh transform. Babel is no longer installed as a dependency, which reduces install size and speeds up transforms. The old "Vite (using SWC)" framing that appeared in earlier templates no longer applies; SWC is not involved.
 
 ## Repository layout
 
